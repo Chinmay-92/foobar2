@@ -1,0 +1,32 @@
+/* Container holding the image and the text */
+.mycontainer {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* text overlay on image */
+h1 .entry-title {
+	font-size: 3rem;
+}
+
+/* Container holding the image and the button */
+.mycontainer img {
+    width: 100%;
+    height: auto;
+}
+
+a.jumper{
+	font-size: 2rem;
+}
+
+
+

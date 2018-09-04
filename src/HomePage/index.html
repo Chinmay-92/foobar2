@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>FooBar - The Event Manager</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../assets/css/full-slider.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../assets/css/cta.css" rel="stylesheet">
+
+  <!-- Handlebars JS -->
+  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <link rel="stylesheet" href="../assets/css/events.css">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">FooBar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href ="#createEventForm">Create Event</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+     <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('../assets/img/classical.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>First Slide</h3>
+          <p>This is a description for the first slide.</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('../assets/img/party.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Second Slide</h3>
+          <p>This is a description for the second slide.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('../assets/img/marching.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Third Slide</h3>
+          <p>This is a description for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</header>
+
+<!-- Call to Action Content -->
+<section class="py-5">
+  <div class="mycontainer">
+    <div>
+      <img src="../assets/img/jazz.jpg" alt="Snow">
+      <div class="centered">
+        <h1 class ="entry-title">Create your event now with FooBar</a>
+        </br>
+        <a class="btn btn-primary" href = "#createEventForm">Create Now</a>
+      </div>
+      <!-- Landing elements -->
+
+    </div>
+  </div>
+</section>
+
+<!-- Event Content -->
+<section class="py-5">
+  <div id="event"></div>
+</section>
+<script id="event-template" type="text/x-handlebars-template">
+  <section class="">
+    <div class="header eventHeader" align="center">Events</div>
+    {{#each items}} <h4 align="center" >{{eventTitle}}</h4>
+    <div class="eventStyle">
+      <div class="grid-container">
+        <div class="item2"><img src="{{getImage}}" class="eventImage" alt="event image" /></div>
+        <div class="grid-container">
+          <div class="item3">{{getLocation}}</div>  
+          <div class="item4">{{getDate}}</div>
+          <div class="item5">{{getDescription}}</div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div> 
+</section>
+</script>
+</section>
+
+<!-- Form Content -->
+<section class="py-5">
+  <div id="createEventForm"></div>
+  <div class="container">
+    <form name="eventForm" action="#" onsubmit="return(validate());" method="post">
+      <h2>Create Event Form</h2>
+      <div class="form-group">
+        <label for="textfield">
+          Name
+        </label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="form-group">
+        <label for="textfield">
+          Place
+        </label>
+        <input type="text" name="place" id="place">
+      </div>
+      <div class="form-group">
+        <label>
+          Service
+        </label>
+        <td>
+         <select name="service">
+           <option value="-1" selected>choose your service</option>
+           <option value="1">Dancing</option>
+           <option value="2">Catering</option>
+           <option value="3">Decoration</option>
+         </select>
+       </td>
+       <div class="form-buttons">
+        <input type="submit" value="Send">
+        <input type="reset" value="Cancel">
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; FooBar 2018</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="../assets/js/jquery/jquery.min.js"></script>
+<script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+<!-- Events core JavaScript -->
+<script src="../assets/js/events.js"></script>
+
+<!-- Form Validation Core JavaScript -->
+<script src="../assets/js/form-validation.js"></script>
+
+</body>
+
+</html>
